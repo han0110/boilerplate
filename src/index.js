@@ -1,0 +1,12 @@
+import React from 'react';
+import { render } from 'react-dom';
+import { history, configureStore } from './store/configureStore';
+import Root from './containers/Root';
+import './app.global.scss';
+
+const store = configureStore();
+
+render(
+  <Root store={store} history={history} />,
+  document.getElementById('root'),
+);

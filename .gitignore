@@ -1,0 +1,15 @@
+# Dependency directory
+node_modules
+
+# OSX
+.DS_Store
+
+# App packaged
+dist
+
+# Compiled binary addons
+.eslintcache
+
+# flow-typed
+flow-typed/npm/*
+!flow-typed/npm/module_vx.x.x.js
