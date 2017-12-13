@@ -1,14 +1,11 @@
 // @flow
 
 import React from 'react';
+import styles from './Home.scss';
 
 const Home = () => (
   <div>
-    <div>A template built with React/Redux by Webpack</div>
-    <div>Feature</div>
-    <ul>
-      <li>FlowType check</li>
-    </ul>
+    <div className={styles.head}>A boilerplate built with React/Redux by Webpack</div>
   </div>
 );
 

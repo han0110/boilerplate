@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
@@ -41,9 +42,21 @@ module.exports = {
           }],
         }),
       },
+      {
+        test: /\.(bmp|gif|jpg|jpeg|png|svg|webp|ttf|otf)$/,
+        use: { loader: 'url-loader', options: { limit: 25000 } },
+      },
     ],
   },
   plugins: [
-    new ExtractTextPlugin('style.css'),
+    new ExtractTextPlugin({ filename: '[name].css' }),
+    new HtmlWebpackPlugin({
+      template: './static/template.html',
+      favicon: './static/favicon.ico',
+      files: {
+        js: ['bundle.js'],
+        css: ['style.css'],
+      },
+    }),
   ],
 };

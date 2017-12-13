@@ -2,10 +2,15 @@
   "name": "boilerplate",
   "version": "1.0.0",
   "main": "server.js",
+  "author": "Jason Jian",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/han0110/boilerplate"
+  },
   "license": "MIT",
   "scripts": {
     "build": "webpack --config webpack.config.prod.js",
-    "dev": "webpack --config webpack.config.dev.js --watch",
+    "dev": "webpack-dev-server --config webpack.config.dev.js --progress --colors",
     "start": "node server.js",
     "flow": "flow",
     "flow-typed": "rimraf flow-typed/npm && flow-typed install --overwrite || true",
@@ -13,10 +18,6 @@
     "lint-styles": "stylelint src/*.scss src/components/*.scss --syntax scss",
     "lint-styles-fix": "stylefmt -r src/*.scss src/components/*.scss",
     "clean": "rimraf dist"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/han0110/boilerplate"
   },
   "dependencies": {
     "axios": "^0.16.2",
@@ -52,14 +53,18 @@
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.4.0",
     "extract-text-webpack-plugin": "2.1.2",
+    "file-loader": "^1.1.5",
     "flow-bin": "^0.59.0",
     "flow-typed": "^2.2.3",
+    "html-webpack-plugin": "^2.30.1",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "stylefmt": "^6.0.0",
     "stylelint": "^8.2.0",
     "stylelint-config-standard": "^17.0.0",
-    "webpack": "^2.7.0"
+    "url-loader": "^0.6.2",
+    "webpack": "^2.7.0",
+    "webpack-dev-server": "^2.9.7"
   }
 }

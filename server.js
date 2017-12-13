@@ -8,7 +8,6 @@ const port = 3000;
 
 app.use(bodyParser());
 
-app.use(serve('public'));
 app.use(serve('dist'));
 
 app.use(router.routes());
