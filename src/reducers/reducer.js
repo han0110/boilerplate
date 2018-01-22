@@ -8,7 +8,7 @@ type reducerType = {
 
 };
 
-const products = (
+const reducer = (
   state: reducerType = {},
   action: actionType,
 ) => {
@@ -18,4 +18,4 @@ const products = (
   }
 };
 
-export default products;
+export default reducer;

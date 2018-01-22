@@ -1,9 +1,13 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import styles from './App.scss';
 
-const App = ({ children }) => (
+type Props = {
+  children: React.Node
+};
+
+const App = ({ children }: Props) => (
   <div className={styles.wrapper}>
     {children}
   </div>
