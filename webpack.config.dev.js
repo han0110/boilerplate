@@ -1,12 +1,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   devtool: 'cheap-module-source-map',
   entry: { index: './src/index.js' },
   output: {
-    publicPath: '/',
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
   },
@@ -14,7 +12,7 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?$/,
-        loaders: ['babel-loader'],
+        loader: 'babel-loader',
         exclude: /node_modules/,
       },
       {
@@ -23,7 +21,6 @@ module.exports = {
           loader: 'style-loader',
         }, {
           loader: 'css-loader',
-          options: { sourceMap: true },
         }, {
           loader: 'sass-loader',
         }],
@@ -36,7 +33,6 @@ module.exports = {
           loader: 'css-loader',
           options: {
             modules: true,
-            sourceMap: true,
             importLoaders: 1,
             localIdentName: '[name]__[local]__[hash:base64:5]',
           },
@@ -51,7 +47,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new ExtractTextPlugin({ filename: '[name].css' }),
     new HtmlWebpackPlugin({
       template: './static/template.html',
       favicon: './static/favicon.ico',

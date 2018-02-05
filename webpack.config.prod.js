@@ -1,9 +1,9 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  devtool: 'cheap-module-source-map',
   entry: { index: './src/index.js' },
   output: {
     path: path.join(__dirname, 'dist'),
@@ -13,7 +13,7 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?$/,
-        loaders: ['babel-loader'],
+        loader: 'babel-loader',
         exclude: /node_modules/,
       },
       {
@@ -40,6 +40,7 @@ module.exports = {
           }, {
             loader: 'sass-loader',
           }],
+          fallback: 'style-loader',
         }),
       },
       {
@@ -49,7 +50,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new ExtractTextPlugin({ filename: '[name].css' }),
+    new ExtractTextPlugin({ filename: '[name].css', allChunks: true }),
     new HtmlWebpackPlugin({
       template: './static/template.html',
       favicon: './static/favicon.ico',
@@ -58,5 +59,9 @@ module.exports = {
         css: ['style.css'],
       },
     }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+    }),
+    new webpack.optimize.UglifyJsPlugin(),
   ],
 };
