@@ -9,7 +9,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.config.dev.js --progress --colors",
+    "dev": "NODE_ENV=development webpack-dev-server --config webpack.config.dev.js --progress --colors",
     "build": "NODE_ENV=production webpack --config webpack.config.prod.js",
     "start": "node server.js",
     "lint:js": "eslint --cache --format=node_modules/eslint-formatter-pretty . && flow .",
@@ -54,11 +54,14 @@
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
+    "postcss-loader": "^2.1.1",
     "stylefmt": "^6.0.0",
     "stylelint": "^8.2.0",
-    "stylelint-config-standard": "^17.0.0",
+    "stylelint-scss": "^2.4.0",
     "url-loader": "^0.6.2",
     "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.9.7"
+    "webpack-bundle-analyzer": "^2.11.0",
+    "webpack-dev-server": "^2.9.7",
+    "webpack-merge": "^4.1.2"
   }
 }
